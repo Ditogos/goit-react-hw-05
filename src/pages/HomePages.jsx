@@ -3,20 +3,23 @@ import { trendingMovies } from "../Api/Api";
 import MovieList from "../components/MovieList";
 const HomePages = () => {
   const [films, setFilm] = useState([]);
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(false);
   useEffect(() => {
     const fetchFilms = async () => {
       try {
+        setLoading(true);
+        setFilm([]);
         const trendingFilms = await trendingMovies();
-        setFilm(trendingFilms.results);
-        setLoading(false);
+        setFilm(trendingFilms.result);
       } catch (error) {
         console.error(error.massage);
+      } finally {
+        setLoading(false);
       }
     };
     fetchFilms();
   }, []);
-  console.log(films);
+
   return (
     <>
       <h1>Trending Movies</h1>

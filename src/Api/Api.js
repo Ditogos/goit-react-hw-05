@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const KEY = "347a1b82032dc2fbe82d3e87943aae66";
-const url = `https://api.themoviedb.org/3/movie/157336?api_key=${KEY}`;
+const url = `https://api.themoviedb.org/3`;
 
 const options = {
   headers: {
@@ -17,7 +16,10 @@ axios
 
 export const trendingMovies = async () => {
   try {
-    const { data } = await axios.get("/trending/all/day", options);
+    const { data } = await axios.get(
+      "/trending/all/day?language=en-US",
+      options
+    );
     return data;
   } catch (error) {
     console.error("Error fetching trending movies", error);

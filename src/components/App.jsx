@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 
 const Navigation = lazy(() => import("../components/Navigation"));
-
 const HomePages = lazy(() => import("../pages/HomePages"));
 const MoviePage = lazy(() => import("../pages/MoviePage"));
 
