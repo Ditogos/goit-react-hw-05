@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const url = `https://api.themoviedb.org/3`;
+const KEY = "347a1b82032dc2fbe82d3e87943aae66";
 
 const options = {
   headers: {
@@ -17,10 +18,10 @@ axios
 export const trendingMovies = async () => {
   try {
     const { data } = await axios.get(
-      "/trending/all/day?language=en-US",
+      `${url}/trending/movie/day?language=en-US&api_key=${KEY}`,
       options
     );
-    return data;
+    return data.movies;
   } catch (error) {
     console.error("Error fetching trending movies", error);
     throw error;
@@ -30,7 +31,7 @@ export const trendingMovies = async () => {
 export const searchMovie = async (query) => {
   try {
     const { data } = await axios.get(
-      `/search/movie?language=en-US&query=${query}`,
+      `${url}/search/movie?language=en-US&query=${query}&api_key=${KEY}`,
       options
     );
     return data;
@@ -42,7 +43,10 @@ export const searchMovie = async (query) => {
 
 export const movieDetails = async (id) => {
   try {
-    const { data } = await axios.get(`/movie/${id}?language=en-US`, options);
+    const { data } = await axios.get(
+      `${url}/movie/${id}?language=en-US${KEY}`,
+      options
+    );
     console.log("Revievs-details:", data);
     return data;
   } catch (error) {
@@ -54,7 +58,7 @@ export const movieDetails = async (id) => {
 export const movieCredits = async (id) => {
   try {
     const { data } = await axios.get(
-      `/movie/${id}/credits?language=en-US`,
+      `${url}/movie/${id}/credits?language=en-US&api_key=${KEY}`,
       options
     );
     console.log("Revievs-credits:", data);
@@ -68,7 +72,7 @@ export const movieCredits = async (id) => {
 export const movieReviews = async (id) => {
   try {
     const { data } = await axios.get(
-      `/movie/${id}/reviews?language=en-US`,
+      `${url}/movie/${id}/reviews?language=en-US&api_key=${KEY}`,
       options
     );
     console.log("Revievs-data:", data);

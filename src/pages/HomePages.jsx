@@ -24,7 +24,7 @@ const HomePages = () => {
     <>
       <h1>Trending Movies</h1>
       {isLoading && <div>Loading....</div>}
-      <MovieList movies={films} />
+      <MovieList results={films} />
     </>
   );
 };
