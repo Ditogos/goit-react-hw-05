@@ -21,7 +21,7 @@ export const trendingMovies = async () => {
       `${url}/trending/movie/day?language=en-US&api_key=${KEY}`,
       options
     );
-    return data.movies;
+    return data.results;
   } catch (error) {
     console.error("Error fetching trending movies", error);
     throw error;
