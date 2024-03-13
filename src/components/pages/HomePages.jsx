@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { trendingMovies } from "../Api/Api";
-import MovieList from "../components/MovieList";
+import { trendingMovies } from "../../Api/Api";
+import MovieList from "../MovieList/MovieList";
 const HomePages = () => {
   const [films, setFilm] = useState([]);
   const [isLoading, setLoading] = useState(false);
@@ -10,7 +10,7 @@ const HomePages = () => {
         setLoading(true);
         setFilm([]);
         const trendingFilms = await trendingMovies();
-        setFilm(trendingFilms.result);
+        setFilm(trendingFilms);
       } catch (error) {
         console.error(error.massage);
       } finally {

@@ -5,6 +5,7 @@ const KEY = "347a1b82032dc2fbe82d3e87943aae66";
 
 const options = {
   headers: {
+    accept: "application/json",
     Authorization:
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNDdhMWI4MjAzMmRjMmZiZTgyZDNlODc5NDNhYWU2NiIsInN1YiI6IjY1ODQ3Y2ExOTc2YTIzMWFmY2EwNDJhZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7v-g9fGLwsoueIPYdQKIwgi534ScdumahciLYWjYViA",
   },
@@ -27,7 +28,18 @@ export const trendingMovies = async () => {
     throw error;
   }
 };
-
+export const movieId = async () => {
+  try {
+    const { data } = await axios.get(
+      `/movie/${movieId}?language=en-US`,
+      options
+    );
+    return data.results;
+  } catch (error) {
+    console.error("Error fetching trending movies", error);
+    throw error;
+  }
+};
 export const searchMovie = async (query) => {
   try {
     const { data } = await axios.get(
@@ -62,7 +74,7 @@ export const movieCredits = async (id) => {
       options
     );
     console.log("Revievs-credits:", data);
-    return data;
+    return data.cast;
   } catch (error) {
     console.error("Error fetching credits movies", error);
     throw error;
