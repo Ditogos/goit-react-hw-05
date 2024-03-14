@@ -1,33 +1,33 @@
 import { useSearchParams } from "react-router-dom";
+import toast from "react-hot-toast";
 
-export default function MoviesFilter() {
+export default function MoviesFilter({ onSubmit }) {
   const [params, setParams] = useSearchParams();
 
-  const changeFilter = (newFilter) => {
-    params.set("query", newFilter);
+  const changeFilter = (query) => {
+    params.set("query", query);
     setParams(params);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const query = form.elements.query.value.trim();
-    if (!query) {
-      console.error("Please enter anything in the field of search");
+    const queryValue = e.target.query.value.trim();
+    if (!queryValue) {
+      toast.error("Please enter anything in the field of search");
       return;
     }
-    if (query.length < 1) {
-      console.error("To shot");
+    if (queryValue.length < 1) {
+      toast.error("To shot");
       return;
     }
-    if (query.length > 50) {
-      console.error("To long");
+    if (queryValue.length > 50) {
+      toast.error("To long");
       return;
     }
 
-    changeFilter(query);
+    changeFilter(queryValue);
 
-    form.reset();
+    onSubmit(queryValue);
   };
 
   return (

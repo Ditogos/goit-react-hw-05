@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { movieReviews } from "../../Api/Api";
+import Loader from "../Loader/Loader";
 
 export default function MovieReviews() {
   const { movieId } = useParams();
@@ -23,7 +24,7 @@ export default function MovieReviews() {
 
   return (
     <>
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <Loader />}
 
       {reviews.length > 0 && (
         <ul>
