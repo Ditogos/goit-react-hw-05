@@ -5,16 +5,19 @@ import Loader from "../Loader/Loader";
 
 export default function MovieReviews() {
   const { movieId } = useParams();
+  const [error, setError] = useState(false);
   const [reviews, setReviews] = useState([]);
-
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function getData() {
       try {
+        setError(false);
         setIsLoading(true);
         const data = await movieReviews(movieId);
         setReviews(data);
+      } catch (error) {
+        setError(error);
       } finally {
         setIsLoading(false);
       }
@@ -25,7 +28,7 @@ export default function MovieReviews() {
   return (
     <>
       {isLoading && <Loader />}
-
+      {error && <p>Something wrong...</p>}
       {reviews.length > 0 && (
         <ul>
           {reviews.map(({ id, author, content }) => (

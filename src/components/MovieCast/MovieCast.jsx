@@ -6,14 +6,14 @@ import GalleryActor from "../GalleryActor/GalleryActor";
 
 export default function MovieCast() {
   const { movieId } = useParams();
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
   const [actor, setActor] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function getData() {
       try {
-        setError(null);
+        setError(false);
         setIsLoading(true);
         const data = await fetchMovieCredits(movieId);
         setActor(data);
@@ -30,7 +30,7 @@ export default function MovieCast() {
     <>
       {isLoading && <Loader />}
 
-      {<div className={css.center}>{isLoading && <Loader />}</div>}
+      {<div>{isLoading && <Loader />}</div>}
       {error && <p>Something wrong...</p>}
       {actor.length === 0 && !isLoading && !error && (
         <p>No information available about the movie cast.</p>

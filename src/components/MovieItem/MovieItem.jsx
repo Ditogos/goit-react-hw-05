@@ -11,8 +11,8 @@ export default function MovieItem({ movie }) {
             alt={movie.title}
           />
         </div>
-        <div className={css.details}>
-          <h2 className={css.title}>
+        <div>
+          <h2>
             {movie.title} ({new Date(movie.release_date).getFullYear()})
           </h2>
           <p>{movie.overview}</p>

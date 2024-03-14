@@ -1,5 +1,4 @@
 import { Link, useLocation } from "react-router-dom";
-import { IoMdArrowRoundBack } from "react-icons/io";
 
 import { useRef } from "react";
 
@@ -10,9 +9,7 @@ export default function BackHomeLink() {
 
   return (
     <div>
-      <Link to={goBackLink.current}>
-        <IoMdArrowRoundBack /> Go back
-      </Link>
+      <Link to={goBackLink.current}>Go back</Link>
     </div>
   );
 }
