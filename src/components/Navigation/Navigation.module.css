@@ -1,0 +1,15 @@
+.navigation {
+  display: flex;
+  justify-content: center;
+}
+
+.navigationLink {
+  text-decoration: none;
+  color: black;
+  margin: 0 20px;
+  transition: color 0.3s ease;
+}
+
+.navigationLink:hover {
+  color: red;
+}

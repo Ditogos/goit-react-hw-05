@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { trendingMovies } from "../../Api/Api";
-import MovieList from "../MovieList/MovieList";
-import Loader from "../Loader/Loader";
+import { trendingMovies } from "../../../Api/Api";
+import MovieList from "../../MovieList/MovieList";
+import Loader from "../../Loader/Loader";
+import css from "./HomePages.module.css";
 
 const HomePages = () => {
   const [films, setFilm] = useState([]);
@@ -25,11 +26,15 @@ const HomePages = () => {
 
   return (
     <>
-      {isLoading && <Loader />}
-      {error && <p>Something wrong...</p>}
-      <h1>Trending Movies</h1>
-      {isLoading && <div>Loading....</div>}
-      <MovieList movies={films} />
+      <div className={css.container}>
+        {isLoading && <Loader />}
+        {error && <p>Something wrong...</p>}
+        <h1>Trending Movies</h1>
+
+        {isLoading && <div>Loading....</div>}
+
+        <MovieList movies={films} />
+      </div>
     </>
   );
 };

@@ -1,0 +1,18 @@
+.container {
+  text-align: center;
+}
+
+.error {
+  color: red;
+}
+
+.noInfo {
+  color: gray;
+}
+
+/* Loader animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

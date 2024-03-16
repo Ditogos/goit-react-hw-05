@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { fetchMovieCredits } from "../../Api/Api";
 import Loader from "../Loader/Loader";
 import GalleryActor from "../GalleryActor/GalleryActor";
+import css from "./MovieCast.module.css";
 
 export default function MovieCast() {
   const { movieId } = useParams();
@@ -28,14 +29,16 @@ export default function MovieCast() {
 
   return (
     <>
-      {isLoading && <Loader />}
-
-      {<div>{isLoading && <Loader />}</div>}
-      {error && <p>Something wrong...</p>}
-      {actor.length === 0 && !isLoading && !error && (
-        <p>No information available about the movie cast.</p>
-      )}
-      <GalleryActor data={actor} />
+      <div className={css.container}>
+        {isLoading && <Loader />}
+        {error && <p className={css.error}>Something wrong...</p>}
+        {actor.length === 0 && !isLoading && !error && (
+          <p className={css.noInfo}>
+            No information available about the movie cast.
+          </p>
+        )}
+        <GalleryActor data={actor} />
+      </div>
     </>
   );
 }

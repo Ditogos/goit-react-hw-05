@@ -8,7 +8,7 @@ export default function MovieItem({ movie }) {
         <div>
           <img
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            alt={movie.title}
+            alt={`${movie.title}`}
           />
         </div>
         <div>

@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import css from "./BackHomeLInk.module.css";
 
 import { useRef } from "react";
 
@@ -8,8 +9,10 @@ export default function BackHomeLink() {
   const goBackLink = useRef(location.state ?? "/");
 
   return (
-    <div>
-      <Link to={goBackLink.current}>Go back</Link>
+    <div className={css.goBackContainer}>
+      <Link to={goBackLink.current} className={css.goBackLink}>
+        Go back
+      </Link>
     </div>
   );
 }

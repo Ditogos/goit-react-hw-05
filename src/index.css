@@ -1,7 +1,25 @@
 body {
   font-family: "DM Sans", sans-serif;
   line-height: 1.5;
+  box-sizing: border-box;
+  background: linear-gradient(to right, #ff8a00, #da1b60, #ff8a00); /* Initial gradient colors */
+  background-size: 400% 400%; 
+  animation: gradientAnimation 10s ease infinite; 
 }
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%; 
+  }
+  50% {
+    background-position: 100% 50%; 
+  }
+  100% {
+    background-position: 0% 50%; 
+  }
+}
+}
+
 
 h1,
 h2,

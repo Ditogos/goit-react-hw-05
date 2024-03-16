@@ -1,9 +1,10 @@
 import { Outlet, useParams } from "react-router-dom";
 import { Suspense, useEffect, useState } from "react";
-import Loader from "../Loader/Loader";
-import { getMovieId } from "../../Api/Api";
+import Loader from "../../Loader/Loader";
+import { getMovieId } from "../../../Api/Api";
 
-import MovieItem from "../MovieItem/MovieItem";
+import MovieItem from "../../MovieItem/MovieItem";
+import MovieInfo from "../../MovieInfo/MovieInfo";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -37,7 +38,7 @@ export default function MovieDetailsPage() {
           <div>
             <h2>Additional information:</h2>
           </div>
-          {/* <AdditionalInfo /> */}
+          <MovieInfo />
           <Suspense fallback={null}>
             <Outlet />
           </Suspense>

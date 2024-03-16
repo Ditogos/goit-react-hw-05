@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { movieReviews } from "../../Api/Api";
+import { movieReviewsFetch } from "../../Api/Api";
 import Loader from "../Loader/Loader";
 
 export default function MovieReviews() {
@@ -14,7 +14,7 @@ export default function MovieReviews() {
       try {
         setError(false);
         setIsLoading(true);
-        const data = await movieReviews(movieId);
+        const data = await movieReviewsFetch(movieId);
         setReviews(data);
       } catch (error) {
         setError(error);
