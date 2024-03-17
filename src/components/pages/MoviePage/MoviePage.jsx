@@ -43,7 +43,7 @@ export default function MoviePage() {
         {isLoading && <Loader />}
         {error && <p>Something went wrong...</p>}
         {movies.length === 0 && !isLoading && !error && moviesTitle && (
-          <p>Please search for the correct movie</p>
+          <p>Please search for the correct movie :) </p>
         )}
       </div>
       <MovieList movies={movies} />
