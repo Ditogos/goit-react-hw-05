@@ -1,8 +1,9 @@
 .movieItem {
   list-style-type: none;
   margin-bottom: 20px;
-  width: 100%; /* Set width to 100% */
+  width: 100%;
   max-width: 300px;
+  transition: transform 0.3s ease;
 }
 
 .movieLink {
@@ -11,6 +12,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid black;
+  border-radius: 20px;
 }
 
 .imageContainer {
@@ -19,8 +22,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid black;
+  border-radius: 20px;
 }
-
+.imageItem {
+  overflow: hidden;
+  border-radius: 20px;
+  height: 100%;
+}
 .imageContainer img {
   max-width: 100%;
   max-height: 100%;
@@ -29,4 +38,8 @@
 .movieTitle {
   margin-top: 10px;
   text-align: center;
+}
+
+.movieItem:hover {
+  transform: scale(1.1);
 }

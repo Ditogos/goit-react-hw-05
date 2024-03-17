@@ -1,10 +1,10 @@
 import { Outlet, useParams } from "react-router-dom";
 import { Suspense, useEffect, useState } from "react";
-import Loader from "../../Loader/Loader";
-import { getMovieId } from "../../../Api/Api";
+import Loader from "../../components/Loader/Loader";
+import { getMovieId } from "../../Api/Api";
 
-import MovieItem from "../../MovieItem/MovieItem";
-import MovieInfo from "../../MovieInfo/MovieInfo";
+import MovieItem from "../../components/MovieItem/MovieItem";
+import MovieInfo from "../../components/MovieInfo/MovieInfo";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { trendingMovies } from "../../../Api/Api";
-import MovieList from "../../MovieList/MovieList";
-import Loader from "../../Loader/Loader";
+import { trendingMovies } from "../../Api/Api";
+import MovieList from "../../components/MovieList/MovieList";
+import Loader from "../../components/Loader/Loader";
 import css from "./HomePages.module.css";
 
 const HomePages = () => {

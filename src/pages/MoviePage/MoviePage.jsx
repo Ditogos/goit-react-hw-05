@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import MovieList from "../../MovieList/MovieList";
-import MoviesFilter from "../../MoviesFilter/MoviesFilter";
-import { getMoviesTitleSearch } from "../../../Api/Api";
-import Loader from "../../Loader/Loader";
+import MovieList from "../../components/MovieList/MovieList";
+import MoviesFilter from "../../components/MoviesFilter/MoviesFilter";
+import { getMoviesTitleSearch } from "../../Api/Api";
+import Loader from "../../components/Loader/Loader";
 import css from "./MoviePage.module.css";
 
 export default function MoviePage() {

@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import NotFindImage from "../pages/NotFoundPage/NotFoundPage";
+import NotFindImage from "../../pages/NotFoundPage/NotFoundPage";
 import css from "./MovieList.module.css";
 
 import { MovieElemState } from "../MovieElemState/MovieElemState";
