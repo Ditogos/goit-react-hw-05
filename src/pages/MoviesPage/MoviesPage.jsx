@@ -4,7 +4,7 @@ import MovieList from "../../components/MovieList/MovieList";
 import MoviesFilter from "../../components/MoviesFilter/MoviesFilter";
 import { getMoviesTitleSearch } from "../../Api/Api";
 import Loader from "../../components/Loader/Loader";
-import css from "./MoviePage.module.css";
+import css from "./MoviesPage.module.css";
 
 export default function MoviePage() {
   const [movies, setMovies] = useState([]);

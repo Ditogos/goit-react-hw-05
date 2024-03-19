@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { trendingMovies } from "../../Api/Api";
 import MovieList from "../../components/MovieList/MovieList";
 import Loader from "../../components/Loader/Loader";
-import css from "./HomePages.module.css";
+import css from "./HomePage.module.css";
 
 const HomePages = () => {
   const [films, setFilm] = useState([]);
