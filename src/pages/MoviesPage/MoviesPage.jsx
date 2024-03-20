@@ -14,28 +14,25 @@ export default function MoviePage() {
   const moviesTitle = params.get("query") ?? "";
 
   useEffect(() => {
-    async function getDataParams() {
-      handleSubmit(moviesTitle);
+    async function fetchDataMovie() {
+      try {
+        setIsLoading(true);
+        setError(null);
+        const data = await getMoviesTitleSearch(moviesTitle);
+        setMovies(data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setIsLoading(false);
+      }
     }
 
-    getDataParams();
+    fetchDataMovie();
   }, [moviesTitle]);
 
-  const handleSubmit = async (moviesTitle) => {
-    try {
-      setMovies([]);
-      setIsLoading(true);
-      setError(null);
-      const data = await getMoviesTitleSearch(moviesTitle);
-
-      setMovies(data);
-    } catch (error) {
-      setError(true);
-    } finally {
-      setIsLoading(false);
-    }
+  const handleSubmit = async (query) => {
+    params.set("query", query);
   };
-
   return (
     <div className={css.containerStyles}>
       <MoviesFilter onSubmit={handleSubmit} />

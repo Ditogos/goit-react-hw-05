@@ -19,7 +19,7 @@ export default function MovieCast() {
         const data = await fetchMovieCredits(movieId);
         setActor(data);
       } catch (error) {
-        setError(error);
+        setError("Something went wrong while fetching movie credits.");
       } finally {
         setIsLoading(false);
       }
@@ -28,17 +28,15 @@ export default function MovieCast() {
   }, [movieId]);
 
   return (
-    <>
-      <div className={css.container}>
-        {isLoading && <Loader />}
-        {error && <p className={css.error}>Something wrong...</p>}
-        {actor.length === 0 && !isLoading && !error && (
-          <p className={css.noInfo}>
-            No information available about the movie cast.
-          </p>
-        )}
-        <GalleryActor data={actor} />
-      </div>
-    </>
+    <div className={css.container}>
+      {isLoading && <Loader />}
+      {error && <p className={css.error}>Something wrong...</p>}
+      {actor.length === 0 && !isLoading && !error && (
+        <p className={css.noInfo}>
+          No information available about the movie cast.
+        </p>
+      )}
+      <GalleryActor data={actor} />
+    </div>
   );
 }

@@ -1,18 +1,22 @@
-.navigation {
+.nav {
   display: flex;
+  align-items: center;
   justify-content: center;
-}
-
-.navigationLink {
-  color: black;
-  margin: 0 20px;
-  transition: color 0.3s ease;
-}
-
-.navigationLink:hover {
-  color: red;
-}
-.navigation a:active,
-.navigation a:visited {
+  gap: 20px;
+  font-size: 24px;
+  padding: 10px;
+  margin: 0;
+  background-color: blanchedalmond;
   text-decoration: none;
+}
+
+.active {
+  color: orangered;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  scale: 1;
+  text-decoration: none;
+  color: inherit;
 }
